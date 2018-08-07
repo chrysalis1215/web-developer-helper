@@ -1,0 +1,18 @@
+<!-- 用于通信的中间页面, 和main.html 同域名, 属于www.a.com  -->
+<html>
+<script>
+    function setIframeHeight() {
+        const height = window.location.hash;
+
+        // 由于同源策略, 中间页面可对main页面的元素调整
+        const iObj = parent.parent.document.getElementById('iframeB');
+        iObj.style.height = iObjH.split("#")[1] + "px";//操作dom
+    }
+    
+    if ( window.self !== window.top ) {
+        window.addEventListener("hashchange", setIframeHeight, false);
+    }
+
+</script>
+
+</html>
